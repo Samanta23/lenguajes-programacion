@@ -9,8 +9,14 @@ package capitulo5.excepciones;
  *
  * @author T-101
  */
-public class ValorMenorDeEdadException extends Exception {
-    public ValorMenorDeEdadException(){
-        super("no puedo dar de alta a un menor de 18 años");
+public class ClaseMuyUtil {
+    
+    public static void main(String[] args){
+    String hola="xf.com";
+    if(hola.contains("@")){
+        System.out.println("si contiene arroba");
+    }else{
+        System.out.println("no contiene la arroba");
+    }
     }
 }
