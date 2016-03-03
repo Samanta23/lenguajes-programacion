@@ -31,11 +31,19 @@ public class InterfazCliente extends javax.swing.JFrame {
         textoEdad = new javax.swing.JTextField();
         etiquetaResultado = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        textoEmail = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
 
         jLabel1.setText("tu edad");
+
+        textoEdad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoEdadActionPerformed(evt);
+            }
+        });
 
         etiquetaResultado.setText("Resultado");
 
@@ -46,23 +54,39 @@ public class InterfazCliente extends javax.swing.JFrame {
             }
         });
 
+        textoEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoEmail(evt);
+            }
+        });
+
+        jLabel2.setText("e-mail");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(52, 52, 52)
-                            .addComponent(jLabel1)
-                            .addGap(35, 35, 35)
-                            .addComponent(textoEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(66, 66, 66)
-                            .addComponent(etiquetaResultado))))
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addComponent(etiquetaResultado))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(35, 35, 35)
+                                        .addComponent(textoEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(134, 134, 134))
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(textoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -71,7 +95,11 @@ public class InterfazCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(textoEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(etiquetaResultado)
@@ -101,6 +129,29 @@ public class InterfazCliente extends javax.swing.JFrame {
             System.out.println("Este se ejecuta se lance o no la exc");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void textoEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoEdadActionPerformed
+        // TODO add your handling code here:
+        
+         try {
+            Cliente c=new Cliente();
+            c.setEmail(textoEmail.getText());
+            etiquetaResultado.setText("Validado con exito");
+            //ValidarEdad validar=new ValidarEdad();
+            //validar.checarEdadNegativa(-19);
+        } catch (ValorSinArrobaException ar) {
+            etiquetaResultado.setText(ar.getMessage());
+            System.out.println(ar.getMessage());
+        } 
+        finally{
+            System.out.println("Este se ejecuta se lance o no la exc");
+        }
+    }//GEN-LAST:event_textoEdadActionPerformed
+
+    private void textoEmail(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoEmail
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_textoEmail
 
     /**
      * @param args the command line arguments
@@ -141,6 +192,8 @@ public class InterfazCliente extends javax.swing.JFrame {
     private javax.swing.JLabel etiquetaResultado;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField textoEdad;
+    private javax.swing.JTextField textoEmail;
     // End of variables declaration//GEN-END:variables
 }

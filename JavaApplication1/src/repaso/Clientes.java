@@ -15,7 +15,7 @@ public class Clientes {
     private int edad;
     private float sueldo;
     private Direccion direccion;
-
+//constructor!!!
     public Clientes(String normbre, String aPaterno, int edad, float sueldo, Direccion direccion) {
         this.normbre = normbre;
         this.aPaterno = aPaterno;

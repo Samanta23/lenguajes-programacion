@@ -15,6 +15,12 @@ Clase modelo Imc encapsulada y con dos constructores
 2. por cada atributo implementar un metodo get (getters)
 3. por cada atributo implementar un metodo set (setters)
 **Solo se encapsulan las clases modelo
+Las clases wrapper o envoltorias sirven para convertir un texto a un numero
+por ejemplo 
+String strNumero="14";
+int num=Integer.parseInt(strNumero);
+num=num+23;
+
 */
 public class Imc {
     
