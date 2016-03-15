@@ -17,17 +17,36 @@ public class GeneradorPreguntas {
         Opcion op1=new Opcion("moscu", true);
         Opcion op2=new Opcion("Florencia", false);
         Opcion op3=new Opcion("paris", false);
-        //estos son arraylist genericos a una clase en particular cuando no le ponemos <Opcion>
+        Opcion op4=new Opcion("londres",false);
+        
+        Opcion o1=new Opcion("Tokio", false);
+        Opcion o2=new Opcion("Beijing", true);
+        Opcion o3=new Opcion("Seul", false);
+        Opcion o4=new Opcion("Pyonjiang", false);
+        
+//estos son arraylist genericos a una clase en particular cuando no le ponemos <Opcion>
         ArrayList<Opcion>opciones=new ArrayList<Opcion>();
+        ArrayList<Opcion>opciones2=new ArrayList<Opcion>();
         
         opciones.add(op1);
         opciones.add(op2);
         opciones.add(op3);
+        opciones.add(op4);
+        
+        opciones2.add(o1);
+        opciones2.add(o2);
+        opciones2.add(o3);
+        opciones2.add(o4);
         
         Pregunta p1=new Pregunta("Capital de Rusia", opciones);
+        Pregunta p2=new Pregunta("Capital de China",opciones2);
         
         ArrayList<Pregunta>preguntas=new ArrayList<Pregunta>();
         preguntas.add(p1);
+        preguntas.add(p2);
+        //ArrayList<Pregunta>preguntas2=new ArrayList<Pregunta>();
+        
+        
         return preguntas;
         
     }
