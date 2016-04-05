@@ -6,6 +6,8 @@
 package Capitulo11.collections;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 
@@ -19,6 +21,7 @@ ArrayList<Pregunta>preguntas;
 JRadioButton radios[]=new JRadioButton[4];
 //numero es el numero de la pregunta
 int numero=0;
+int x=10;
     /**
      * Creates new form TestBasico
      */
@@ -27,6 +30,38 @@ int numero=0;
         preguntas=GeneradorPreguntas.obtenerTodasLasPreguntas();
         pregunta.setText(preguntas.get(numero).getTitulo());
         //este metodo es todo lo que teniamos de los radio buttons
+       Thread t1=new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                while(true){
+                x--;
+                if(x<=0){
+                     numero++;
+                     x=10;
+                
+        iniciarTodas();
+                }
+                etiquetaReloj.setText("" +x);
+                    try {
+                        Thread.sleep(1000);
+                    } catch (Exception e) {
+                        Logger.getLogger(TestBasico.class.getName()).log(Level.SEVERE, null, e);
+                    }
+               
+                }
+                
+            }
+        });
+       t1.start();
+    
+    
+   
+
+           
+        
+        
+        
         iniciarTodas();
         
         //radio3.isSelected(false);
@@ -51,6 +86,7 @@ int numero=0;
         radio3 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        etiquetaReloj = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,15 +143,20 @@ int numero=0;
                                     .addComponent(radio2)
                                     .addComponent(radio3))))
                         .addGap(0, 194, Short.MAX_VALUE))
-                    .addComponent(pregunta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(pregunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(etiquetaReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(pregunta)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pregunta)
+                    .addComponent(etiquetaReloj, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(radio0)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(radio1)
@@ -192,6 +233,7 @@ int numero=0;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel etiquetaReloj;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel pregunta;
