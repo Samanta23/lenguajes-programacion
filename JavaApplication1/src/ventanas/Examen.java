@@ -2,6 +2,7 @@
 package ventanas;
 
 import clases.*;
+import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import java.util.logging.Level;
@@ -10,7 +11,7 @@ import java.util.logging.Logger;
 
 public class Examen extends javax.swing.JFrame {
 
-int x=10;
+public static int x=10;
 int numero=0;
 
 //creando los objetos para preguntas y respuestas y una variable posicion para avanzar
@@ -35,6 +36,12 @@ int numero=0;
         //iniciarTodas();
                 }
                 etiquetaReloj.setText("" +x);
+                if(x<=5){
+                    etiquetaReloj.setForeground(Color.red); 
+                }
+                   else{
+                    etiquetaReloj.setForeground(Color.blue);
+                }
                     try {
                         Thread.sleep(1000);
                     } catch (Exception e) {
@@ -95,6 +102,7 @@ int numero=0;
         etiquetaReloj = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 0, 204));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Examen"));
         jPanel1.setName("Examen"); // NOI18N
@@ -239,7 +247,7 @@ int numero=0;
     }// </editor-fold>//GEN-END:initComponents
 //boton avanzar 
     private void avanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avanzarActionPerformed
-
+x=11;
         if(posicion == 3){
             avanzar.setEnabled(false);
             terminarExamen.setEnabled(true);
