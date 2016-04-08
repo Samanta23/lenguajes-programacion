@@ -14,6 +14,7 @@ public class Examen extends javax.swing.JFrame {
 public static int x=10;
 int numero=0;
 
+
 //creando los objetos para preguntas y respuestas y una variable posicion para avanzar
     int posicion = 0;
     Respuestas r = new Respuestas();
@@ -313,6 +314,7 @@ x=11;
         //calificacion = calificacion * 2;
         //para mandar la ventana emergente con la calificacion
         JOptionPane.showMessageDialog(null, "Tu calificacion es " +  calificacion);
+        
         
     }//GEN-LAST:event_terminarExamenActionPerformed
 

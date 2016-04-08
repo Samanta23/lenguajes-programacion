@@ -7,7 +7,7 @@ public class Respuestas {
 //crear el arreglo de respuestas para relacionarlo con cada pregunta LAS VERDADERAS
     String[] respuestas = {
       "Nicosia","Nairobi","Ankara","LaHabana","ElCairo", 
-        "BuenosAire","NuevaDelhi","Brasilia","Washington","Oslo"
+        "BuenosAires","NuevaDelhi","Brasilia","Washington","Oslo"
     };
     //declarar un string para los radioButton mandandole EL ARREGLO DE las respuestas
     String[] radioR = {
@@ -16,7 +16,7 @@ public class Respuestas {
         "Otawa,Verna,Estocolmo,Ankara",
         "Nicosia,Verna,LaHabana,Berlin", //
         "Berlin,Russeau,ElCairo,Nicosia",
-        "Bruselas,Berna,Estocolmo,BuenosAire",
+        "Bruselas,Berna,Estocolmo,BuenosAires",
         "Andorra,NuevaDelhi,Paris,Londres",
         "Brasilia,RioJaneiro,Santiago,Bogota",
         "DF,Otawa,NewYork,Washington",
