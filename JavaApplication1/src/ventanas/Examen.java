@@ -18,7 +18,7 @@ int numero=0;
     int posicion = 0;
     Respuestas r = new Respuestas();
     Preguntas p = new Preguntas();
-    Object[] select = {"","","","",""};
+    Object[] select = {"","","","","","","","","",""};
     public Examen() {
         initComponents();
         
@@ -51,8 +51,8 @@ int numero=0;
                 }
                 
             }
-        });
-       t1.start();
+        }); //***************
+      t1.start();
     
     
    
@@ -104,17 +104,19 @@ int numero=0;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 0, 204));
 
+        jPanel1.setBackground(java.awt.Color.orange);
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Examen"));
         jPanel1.setName("Examen"); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 0, 255));
+        jLabel1.setFont(new java.awt.Font("Lucida Sans Typewriter", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 255));
         jLabel1.setText("Pregunta");
 
-        question.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        question.setForeground(new java.awt.Color(102, 102, 255));
+        question.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        question.setForeground(new java.awt.Color(255, 255, 51));
         question.setText("¿Pregunta 1?");
 
+        opc1.setBackground(java.awt.Color.orange);
         buttonGroup1.add(opc1);
         opc1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +124,7 @@ int numero=0;
             }
         });
 
+        opc2.setBackground(java.awt.Color.orange);
         buttonGroup1.add(opc2);
         opc2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +132,7 @@ int numero=0;
             }
         });
 
+        opc3.setBackground(java.awt.Color.orange);
         buttonGroup1.add(opc3);
         opc3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +140,7 @@ int numero=0;
             }
         });
 
+        opc4.setBackground(java.awt.Color.orange);
         buttonGroup1.add(opc4);
         opc4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,6 +169,7 @@ int numero=0;
             }
         });
 
+        etiquetaReloj.setFont(new java.awt.Font("Lucida Sans", 0, 36)); // NOI18N
         etiquetaReloj.setText("jLabel2");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -217,7 +223,7 @@ int numero=0;
                 .addComponent(opc3)
                 .addGap(18, 18, 18)
                 .addComponent(opc4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(avanzar)
                     .addComponent(regresar))
@@ -248,12 +254,12 @@ int numero=0;
 //boton avanzar 
     private void avanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avanzarActionPerformed
 x=11;
-        if(posicion == 3){
+        if(posicion == 8){
             avanzar.setEnabled(false);
             terminarExamen.setEnabled(true);
         }
         
-        if(posicion < 5){
+        if(posicion < 10){
             regresar.setEnabled(true);
             posicion++;
             question.setText(p.getPregunta(posicion));
@@ -298,13 +304,13 @@ x=11;
         
         int calificacion = 0;
         
-        for(int i = 0; i < 5; i++){
+        for(int i = 0; i < 10; i++){
             if(select[i].equals(r.getRespuesta(i))){
-                calificacion = calificacion + 1;
+                calificacion++;
             }
         }
         
-        calificacion = calificacion * 2;
+        //calificacion = calificacion * 2;
         //para mandar la ventana emergente con la calificacion
         JOptionPane.showMessageDialog(null, "Tu calificacion es " +  calificacion);
         
@@ -340,4 +346,7 @@ x=11;
     private javax.swing.JButton regresar;
     private javax.swing.JButton terminarExamen;
     // End of variables declaration//GEN-END:variables
+
+
+
 }
