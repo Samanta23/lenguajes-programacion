@@ -1,6 +1,7 @@
 
 package ventanas;
 
+//SE IMPORTAN LAS LIBRERIAS NECESARIAS
 import clases.*;
 import java.awt.Color;
 import java.awt.Toolkit;
@@ -10,7 +11,7 @@ import java.util.logging.Logger;
 
 
 public class Examen extends javax.swing.JFrame {
-
+// SE DECLARAN LAS VARIABLES GLOBALES 
 public static int x=10;
 int numero=0;
 
@@ -23,11 +24,12 @@ int numero=0;
     public Examen() {
         initComponents();
         
-
+// SE CREA EL THREAD PARA EL CRONOMETRO CON EL METODO RUNNABLE
            Thread t1=new Thread(new Runnable() {
 
             @Override
             public void run() {
+                // SE INDICA QUE MIENTRAS SE CUMPLA LA SENTENCIA DECREMENTE EL CONTADOR QUE VA DE 10 A 0
                 while(true){
                 x--;
                 if(x<=0){
@@ -36,6 +38,7 @@ int numero=0;
                 
         //iniciarTodas();
                 }
+                //SE MANDA A PANTALLA LA NUMERACION POR MEDIO DE LA ETIQUETA RELOJ QUE ESTA EN LA INTERFAZ
                 etiquetaReloj.setText("" +x);
                 if(x<=5){
                     etiquetaReloj.setForeground(Color.red); 
@@ -43,6 +46,7 @@ int numero=0;
                    else{
                     etiquetaReloj.setForeground(Color.blue);
                 }
+                // SE DETERMINA QUE ES LO QUE SE DEBE HACER CUANDO SEA LANZADA LA EXCEPCION
                     try {
                         Thread.sleep(1000);
                     } catch (Exception e) {
@@ -53,6 +57,7 @@ int numero=0;
                 
             }
         }); //***************
+           // SE INICIALIZA EL THREAD
       t1.start();
     
     
@@ -71,6 +76,7 @@ int numero=0;
         //enviando a pantalla el conjunto recibido del arreglo String de cada respuesta
         String[] a = r.setRespuestas(posicion);
         buttonGroup1.clearSelection(); // sirve para borrar las selecciones de los radio button
+        // SE DECLARAN LOS OBJETOS DEL ARREGLO DE OPCIONES
         opc1.setText(a[0]);
         opc2.setText(a[1]);
         opc3.setText(a[2]);
@@ -255,6 +261,7 @@ int numero=0;
 //boton avanzar 
     private void avanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avanzarActionPerformed
 x=11;
+// SE DETERMINA UN IF ELSE PARA LA ACCION DESEADA DEL BOTON AVANZAR
         if(posicion == 8){
             avanzar.setEnabled(false);
             terminarExamen.setEnabled(true);
@@ -275,11 +282,11 @@ x=11;
             Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_avanzarActionPerformed
-//boton avanzar
+//boton REGRESAR
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
        
             
-        
+        // SE DECLARA UNA SENTENCIA IF ELSE PARA EL EVENTO A REALIZAR POR EL BOTON REGRESAR
         
         if(posicion == 0){
             regresar.setEnabled(false);
@@ -303,6 +310,7 @@ x=11;
 //boton terminar
     private void terminarExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminarExamenActionPerformed
         
+       // SE DECLARA UN CICLO FOR PARA DETERMINAR LA CALIDICACION ACUMULADA
         int calificacion = 0;
         
         for(int i = 0; i < 10; i++){
